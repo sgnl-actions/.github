@@ -1,0 +1,10 @@
+{
+  "name": "Dependency Review",
+  "description": "Review dependencies for security vulnerabilities and license compliance in pull requests",
+  "iconName": "octicon search",
+  "categories": [
+    "JavaScript",
+    "Security",
+    "Dependency management"
+  ]
+}

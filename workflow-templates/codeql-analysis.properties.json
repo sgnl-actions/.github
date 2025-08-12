@@ -1,0 +1,13 @@
+{
+  "name": "CodeQL Security Analysis",
+  "description": "Run CodeQL security analysis on JavaScript code to identify vulnerabilities",
+  "iconName": "octicon shield",
+  "categories": [
+    "JavaScript",
+    "Security"
+  ],
+  "filePatterns": [
+    "package.json$",
+    "^src/.*\\.m?js$"
+  ]
+}
