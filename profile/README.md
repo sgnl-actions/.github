@@ -14,60 +14,76 @@ Actions are executed through SGNL's CAEP Hub feature.
 
 ## 📚 Available Actions
 
-### Complete Action Catalog
+### Session Management
 
-| Category | Action | Description | Status |
-|----------|--------|-------------|--------|
-| **Session Management** | | | |
-| Okta | [okta-revoke-session](https://github.com/sgnl-actions/okta-revoke-session) | Terminate active Okta user sessions | ✅ Production |
-| Azure AD | [aad-revoke-session](https://github.com/sgnl-actions/aad-revoke-session) | Revoke Azure AD sign-in sessions | ✅ Production |
-| Google | [google-revoke-session](https://github.com/sgnl-actions/google-revoke-session) | Revoke Google Workspace sessions | ✅ Production |
-| AWS | [aws-revoke-session](https://github.com/sgnl-actions/aws-revoke-session) | Terminate AWS Identity Center sessions | ✅ Production |
-| AWS | [aws-revoke-user-access-tokens](https://github.com/sgnl-actions/aws-revoke-user-access-tokens) | Revoke AWS user access tokens | ✅ Production |
-| Salesforce | [salesforce-revoke-session](https://github.com/sgnl-actions/salesforce-revoke-session) | Invalidate Salesforce sessions | ✅ Production |
-| Slack | [slack-revoke-session](https://github.com/sgnl-actions/slack-revoke-session) | Revoke Slack authentication | ✅ Production |
-| Box | [box-revoke-session](https://github.com/sgnl-actions/box-revoke-session) | Terminate Box sessions | ✅ Production |
-| Zoom | [zoom-revoke-session](https://github.com/sgnl-actions/zoom-revoke-session) | Invalidate Zoom sessions | ✅ Production |
-| Snowflake | [snowflake-revoke-session](https://github.com/sgnl-actions/snowflake-revoke-session) | Terminate Snowflake sessions | ✅ Production |
-| HashiCorp | [hashicorp-boundary-cancel-sessions](https://github.com/sgnl-actions/hashicorp-boundary-cancel-sessions) | Cancel Boundary sessions | ✅ Production |
-| **User Lifecycle Management** | | | |
-| Okta | [okta-suspend-user](https://github.com/sgnl-actions/okta-suspend-user) | Suspend Okta user account | ✅ Production |
-| Okta | [okta-unsuspend-user](https://github.com/sgnl-actions/okta-unsuspend-user) | Unsuspend Okta user account | ✅ Production |
-| Okta | [okta-create-user](https://github.com/sgnl-actions/okta-create-user) | Create new Okta user | ✅ Production |
-| Okta | [okta-update-user](https://github.com/sgnl-actions/okta-update-user) | Update Okta user by login | ✅ Production |
-| Okta | [okta-update-user-by-id](https://github.com/sgnl-actions/okta-update-user-by-id) | Update Okta user by ID | ✅ Production |
-| Azure AD | [aad-enable-user](https://github.com/sgnl-actions/aad-enable-user) | Enable Azure AD user account | ✅ Production |
-| Azure AD | [aad-disable-user](https://github.com/sgnl-actions/aad-disable-user) | Disable Azure AD user account | ✅ Production |
-| Google | [google-delete-workforce-user](https://github.com/sgnl-actions/google-delete-workforce-user) | Delete Google Workspace user | ✅ Production |
-| Google | [google-undelete-workforce-user](https://github.com/sgnl-actions/google-undelete-workforce-user) | Restore deleted Google user | ✅ Production |
-| SailPoint | [sailpoint-identity-now-enable-account](https://github.com/sgnl-actions/sailpoint-identity-now-enable-account) | Enable SailPoint account | ✅ Production |
-| SailPoint | [sailpoint-identity-now-disable-account](https://github.com/sgnl-actions/sailpoint-identity-now-disable-account) | Disable SailPoint account | ✅ Production |
-| **Access Management** | | | |
-| Okta | [okta-assign-user-to-group](https://github.com/sgnl-actions/okta-assign-user-to-group) | Add user to Okta group | ✅ Production |
-| Okta | [okta-unassign-user-from-group](https://github.com/sgnl-actions/okta-unassign-user-from-group) | Remove user from Okta group | ✅ Production |
-| Azure AD | [aad-add-to-group](https://github.com/sgnl-actions/aad-add-to-group) | Add user to Azure AD group | ✅ Production |
-| Azure AD | [aad-remove-from-group](https://github.com/sgnl-actions/aad-remove-from-group) | Remove user from Azure AD group | ✅ Production |
-| Azure AD | [aad-assign-role-to-user](https://github.com/sgnl-actions/aad-assign-role-to-user) | Assign Azure AD directory role | ✅ Production |
-| Azure AD | [aad-unassign-role-from-user](https://github.com/sgnl-actions/aad-unassign-role-from-user) | Remove Azure AD directory role | ✅ Production |
-| AWS | [aws-add-to-identity-center-group](https://github.com/sgnl-actions/aws-add-to-identity-center-group) | Add user to AWS Identity Center group | ✅ Production |
-| AWS | [aws-remove-from-identity-center-group](https://github.com/sgnl-actions/aws-remove-from-identity-center-group) | Remove user from AWS Identity Center group | ✅ Production |
-| Salesforce | [salesforce-add-to-permission-set](https://github.com/sgnl-actions/salesforce-add-to-permission-set) | Assign Salesforce permission set | ✅ Production |
-| Salesforce | [salesforce-remove-from-permission-set](https://github.com/sgnl-actions/salesforce-remove-from-permission-set) | Remove Salesforce permission set | ✅ Production |
-| HashiCorp | [hashicorp-boundary-add-user-to-group](https://github.com/sgnl-actions/hashicorp-boundary-add-user-to-group) | Add user to Boundary group | ✅ Production |
-| HashiCorp | [hashicorp-boundary-remove-user-from-group](https://github.com/sgnl-actions/hashicorp-boundary-remove-user-from-group) | Remove user from Boundary group | ✅ Production |
-| SailPoint | [sailpoint-identity-now-grant-access](https://github.com/sgnl-actions/sailpoint-identity-now-grant-access) | Grant access in SailPoint | ✅ Production |
-| SailPoint | [sailpoint-identity-now-revoke-access](https://github.com/sgnl-actions/sailpoint-identity-now-revoke-access) | Revoke access in SailPoint | ✅ Production |
-| **Generic/Utility Actions** | | | |
-| Generic | [generic-webhook](https://github.com/sgnl-actions/generic-webhook) | Execute custom HTTP requests | ✅ Production |
-| **Templates & Examples** | | | |
-| Example | [hello-world](https://github.com/sgnl-actions/hello-world) | Simple example action | ✅ Available |
-| Template | [javascript-template](https://github.com/sgnl-actions/javascript-template) | Template for new actions | ✅ Available |
+| Service | Action | Description |
+|---------|--------|-------------|
+| AWS | [aws-revoke-session](https://github.com/sgnl-actions/aws-revoke-session) | Terminate AWS Identity Center sessions |
+| AWS | [aws-revoke-user-access-tokens](https://github.com/sgnl-actions/aws-revoke-user-access-tokens) | Revoke AWS user access tokens |
+| Azure AD | [aad-revoke-session](https://github.com/sgnl-actions/aad-revoke-session) | Revoke Azure AD sign-in sessions |
+| Box | [box-revoke-session](https://github.com/sgnl-actions/box-revoke-session) | Terminate Box sessions |
+| Google | [google-revoke-session](https://github.com/sgnl-actions/google-revoke-session) | Revoke Google Workspace sessions |
+| HashiCorp | [hashicorp-boundary-cancel-sessions](https://github.com/sgnl-actions/hashicorp-boundary-cancel-sessions) | Cancel Boundary sessions |
+| Okta | [okta-revoke-session](https://github.com/sgnl-actions/okta-revoke-session) | Terminate active Okta user sessions |
+| Salesforce | [salesforce-revoke-session](https://github.com/sgnl-actions/salesforce-revoke-session) | Invalidate Salesforce sessions |
+| Slack | [slack-revoke-session](https://github.com/sgnl-actions/slack-revoke-session) | Revoke Slack authentication |
+| Snowflake | [snowflake-revoke-session](https://github.com/sgnl-actions/snowflake-revoke-session) | Terminate Snowflake sessions |
+| Zoom | [zoom-revoke-session](https://github.com/sgnl-actions/zoom-revoke-session) | Invalidate Zoom sessions |
 
-### Migration Progress
-- **Completed**: 35 actions (67.3%)
-- **In Progress**: 2 actions (Slack messaging)
-- **Planned**: 15 actions (CAEP events and additional integrations)
-- **Total**: 52 production actions
+### User Lifecycle Management
+
+| Service | Action | Description |
+|---------|--------|-------------|
+| Azure AD | [aad-disable-user](https://github.com/sgnl-actions/aad-disable-user) | Disable Azure AD user account |
+| Azure AD | [aad-enable-user](https://github.com/sgnl-actions/aad-enable-user) | Enable Azure AD user account |
+| Google | [google-delete-workforce-user](https://github.com/sgnl-actions/google-delete-workforce-user) | Delete Google Workspace user |
+| Google | [google-undelete-workforce-user](https://github.com/sgnl-actions/google-undelete-workforce-user) | Restore deleted Google user |
+| Okta | [okta-create-user](https://github.com/sgnl-actions/okta-create-user) | Create new Okta user |
+| Okta | [okta-suspend-user](https://github.com/sgnl-actions/okta-suspend-user) | Suspend Okta user account |
+| Okta | [okta-unsuspend-user](https://github.com/sgnl-actions/okta-unsuspend-user) | Unsuspend Okta user account |
+| Okta | [okta-update-user](https://github.com/sgnl-actions/okta-update-user) | Update Okta user by login |
+| Okta | [okta-update-user-by-id](https://github.com/sgnl-actions/okta-update-user-by-id) | Update Okta user by ID |
+| SailPoint | [sailpoint-identity-now-disable-account](https://github.com/sgnl-actions/sailpoint-identity-now-disable-account) | Disable SailPoint account |
+| SailPoint | [sailpoint-identity-now-enable-account](https://github.com/sgnl-actions/sailpoint-identity-now-enable-account) | Enable SailPoint account |
+
+### Access Management
+
+| Service | Action | Description |
+|---------|--------|-------------|
+| AWS | [aws-add-to-identity-center-group](https://github.com/sgnl-actions/aws-add-to-identity-center-group) | Add user to AWS Identity Center group |
+| AWS | [aws-remove-from-identity-center-group](https://github.com/sgnl-actions/aws-remove-from-identity-center-group) | Remove user from AWS Identity Center group |
+| Azure AD | [aad-add-to-group](https://github.com/sgnl-actions/aad-add-to-group) | Add user to Azure AD group |
+| Azure AD | [aad-assign-role-to-user](https://github.com/sgnl-actions/aad-assign-role-to-user) | Assign Azure AD directory role |
+| Azure AD | [aad-remove-from-group](https://github.com/sgnl-actions/aad-remove-from-group) | Remove user from Azure AD group |
+| Azure AD | [aad-unassign-role-from-user](https://github.com/sgnl-actions/aad-unassign-role-from-user) | Remove Azure AD directory role |
+| HashiCorp | [hashicorp-boundary-add-user-to-group](https://github.com/sgnl-actions/hashicorp-boundary-add-user-to-group) | Add user to Boundary group |
+| HashiCorp | [hashicorp-boundary-remove-user-from-group](https://github.com/sgnl-actions/hashicorp-boundary-remove-user-from-group) | Remove user from Boundary group |
+| Okta | [okta-assign-user-to-group](https://github.com/sgnl-actions/okta-assign-user-to-group) | Add user to Okta group |
+| Okta | [okta-unassign-user-from-group](https://github.com/sgnl-actions/okta-unassign-user-from-group) | Remove user from Okta group |
+| SailPoint | [sailpoint-identity-now-grant-access](https://github.com/sgnl-actions/sailpoint-identity-now-grant-access) | Grant access in SailPoint |
+| SailPoint | [sailpoint-identity-now-revoke-access](https://github.com/sgnl-actions/sailpoint-identity-now-revoke-access) | Revoke access in SailPoint |
+| Salesforce | [salesforce-add-to-permission-set](https://github.com/sgnl-actions/salesforce-add-to-permission-set) | Assign Salesforce permission set |
+| Salesforce | [salesforce-remove-from-permission-set](https://github.com/sgnl-actions/salesforce-remove-from-permission-set) | Remove Salesforce permission set |
+
+### Messaging & Communication
+
+| Service | Action | Description |
+|---------|--------|-------------|
+| Slack | [slack-send-direct-message](https://github.com/sgnl-actions/slack-send-direct-message) | Send direct message in Slack |
+| Slack | [slack-send-message](https://github.com/sgnl-actions/slack-send-message) | Send message to Slack channel |
+
+### Generic & Utility Actions
+
+| Type | Action | Description |
+|------|--------|-------------|
+| HTTP | [generic-webhook](https://github.com/sgnl-actions/generic-webhook) | Execute custom HTTP requests |
+
+### Templates & Examples
+
+| Type | Repository | Description |
+|------|------------|-------------|
+| Example | [hello-world](https://github.com/sgnl-actions/hello-world) | Simple example action demonstrating core concepts |
+| Template | [javascript-template](https://github.com/sgnl-actions/javascript-template) | Template repository for creating new actions |
 
 ## 🏗️ Architecture
 
@@ -242,7 +258,7 @@ All completed actions are:
 | Salesforce | 3 | Session, Permission Management |
 | SailPoint | 4 | Account, Access Management |
 | HashiCorp | 3 | Session, Group Management |
-| Slack | 1 | Session Management |
+| Slack | 3 | Session, Messaging |
 | Box | 1 | Session Management |
 | Zoom | 1 | Session Management |
 | Snowflake | 1 | Session Management |
