@@ -10,7 +10,7 @@ SGNL Actions is a collection of JavaScript-based automation actions designed for
 
 ### Using an Action in Your Workflow
 
-Actions are executed through the SGNL's CAEP Hub feature.
+Actions are executed through SGNL's CAEP Hub feature.
 
 ## 📚 Available Actions
 
