@@ -12,7 +12,6 @@ SGNL Actions is a collection of JavaScript-based automation actions designed for
 
 Actions are executed through the SGNL's CAEP Hub feature.
 
-```
 ## 📚 Available Actions
 
 ### Identity Management
@@ -35,6 +34,7 @@ Actions are executed through the SGNL's CAEP Hub feature.
 
 ### Action Structure
 Each action follows a consistent structure:
+
 ```
 action-name/
 ├── src/
