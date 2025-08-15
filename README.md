@@ -2,14 +2,6 @@
 
 This repository contains organization-wide configurations for the sgnl-actions GitHub organization.
 
-## 📊 Organization Status
-
-- **Total Repositories**: 42 action repositories + 2 special repos (.github, javascript-template)
-- **Languages**: JavaScript/Node.js
-- **Dependencies**: All repos updated to Jest v30, @rollup/plugin-node-resolve v16
-- **Test Coverage**: All repositories have passing tests with 80%+ coverage requirement
-- **Security**: Dependabot enabled, secret scanning active, CodeQL available
-
 ## 📦 Available Actions
 
 ### Azure Active Directory (AAD)
@@ -93,6 +85,21 @@ This repository contains organization-wide configurations for the sgnl-actions G
 |--------|-------------|------------|
 | Generic SSE Transmitter | Send Server-Sent Events | [generic-sse-transmitter](https://github.com/sgnl-actions/generic-sse-transmitter) |
 | Generic Webhook | Send webhook notifications | [generic-webhook](https://github.com/sgnl-actions/generic-webhook) |
+
+### CAEP Events
+| Action | Description | Repository |
+|--------|-------------|------------|
+| Assurance Level Change | Handle assurance level change events | [caep-assurance-level-change](https://github.com/sgnl-actions/caep-assurance-level-change) |
+| Credential Change | Handle credential change events | [caep-credential-change](https://github.com/sgnl-actions/caep-credential-change) |
+| Device Compliance Change | Handle device compliance change events | [caep-device-compliance-change](https://github.com/sgnl-actions/caep-device-compliance-change) |
+| Session Revoked | Handle session revoked events | [caep-session-revoked](https://github.com/sgnl-actions/caep-session-revoked) |
+| Token Claims Change | Handle token claims change events | [caep-token-claims-change](https://github.com/sgnl-actions/caep-token-claims-change) |
+
+### Development Tools
+| Action | Description | Repository |
+|--------|-------------|------------|
+| Hello World | Example action for testing | [hello-world](https://github.com/sgnl-actions/hello-world) |
+| JavaScript Template | Template for creating new actions | [javascript-template](https://github.com/sgnl-actions/javascript-template) |
 
 ## 📁 Repository Structure
 
