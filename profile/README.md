@@ -1,6 +1,6 @@
-# SGNL Actions Organization Configuration
+# SGNL Actions 
 
-This repository contains organization-wide configurations for the sgnl-actions GitHub organization.
+This repository contains actions for use with SGNL's CAEP Hub
 
 ## 📦 Available Actions
 
