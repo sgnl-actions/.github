@@ -51,6 +51,7 @@ jobs:
     - run: npm ci
     - name: Verify package-lock.json is in sync
       run: |
+        npm cache clean --force
         npm install --package-lock-only --prefer-online
         if [ -n "$(git status --porcelain package-lock.json)" ]; then
           echo "Error: package-lock.json is out of sync with package.json"
