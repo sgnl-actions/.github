@@ -34,11 +34,11 @@ Actions are executed through SGNL's CAEP Hub feature.
 
 | Service | Action | Description |
 |---------|--------|-------------|
-| Active Directory | [ad-create-user](https://github.com/sgnl-actions/ad-create-user) | Create a new user in on-premise Active Directory |
-| Active Directory | [ad-disable-user](https://github.com/sgnl-actions/ad-disable-user) | Disable an on-premise Active Directory user account |
-| Active Directory | [ad-enable-user](https://github.com/sgnl-actions/ad-enable-user) | Enable an on-premise Active Directory user account |
-| Active Directory | [ad-move-user](https://github.com/sgnl-actions/ad-move-user) | Move a user to a new OU in on-premise Active Directory |
-| Active Directory | [ad-update-user](https://github.com/sgnl-actions/ad-update-user) | Update user attributes in on-premise Active Directory |
+| Active Directory | [ad-create-user](https://github.com/sgnl-actions/ad-create-user) | Create a new user in Active Directory |
+| Active Directory | [ad-disable-user](https://github.com/sgnl-actions/ad-disable-user) | Disable an Active Directory user account |
+| Active Directory | [ad-enable-user](https://github.com/sgnl-actions/ad-enable-user) | Enable an Active Directory user account |
+| Active Directory | [ad-move-user](https://github.com/sgnl-actions/ad-move-user) | Move a user to a new OU in Active Directory |
+| Active Directory | [ad-update-user](https://github.com/sgnl-actions/ad-update-user) | Update user attributes in Active Directory |
 | Azure AD | [aad-disable-user](https://github.com/sgnl-actions/aad-disable-user) | Disable Azure AD user account |
 | Azure AD | [aad-enable-user](https://github.com/sgnl-actions/aad-enable-user) | Enable Azure AD user account |
 | Google | [google-delete-workforce-user](https://github.com/sgnl-actions/google-delete-workforce-user) | Delete Google Workspace user |
@@ -55,9 +55,9 @@ Actions are executed through SGNL's CAEP Hub feature.
 
 | Service | Action | Description |
 |---------|--------|-------------|
-| Active Directory | [ad-add-to-group](https://github.com/sgnl-actions/ad-add-to-group) | Add a user to an on-premise Active Directory group |
-| Active Directory | [ad-create-group](https://github.com/sgnl-actions/ad-create-group) | Create a new group in on-premise Active Directory |
-| Active Directory | [ad-remove-from-group](https://github.com/sgnl-actions/ad-remove-from-group) | Remove a user from an on-premise Active Directory group |
+| Active Directory | [ad-add-to-group](https://github.com/sgnl-actions/ad-add-to-group) | Add a user to an Active Directory group |
+| Active Directory | [ad-create-group](https://github.com/sgnl-actions/ad-create-group) | Create a new group in Active Directory |
+| Active Directory | [ad-remove-from-group](https://github.com/sgnl-actions/ad-remove-from-group) | Remove a user from an Active Directory group |
 | AWS | [aws-add-to-identity-center-group](https://github.com/sgnl-actions/aws-add-to-identity-center-group) | Add user to AWS Identity Center group |
 | AWS | [aws-remove-from-identity-center-group](https://github.com/sgnl-actions/aws-remove-from-identity-center-group) | Remove user from AWS Identity Center group |
 | Azure AD | [aad-add-to-group](https://github.com/sgnl-actions/aad-add-to-group) | Add user to Azure AD group |
