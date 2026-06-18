@@ -7,74 +7,70 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - name: Validate metadata
-        run: npm run validate
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - run: npm ci
+    - name: Validate metadata
+      run: npm run validate
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - name: Lint
-        run: npm run lint
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - run: npm ci
+    - name: Lint
+      run: npm run lint
 
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - name: Run tests
-        run: npm test
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - run: npm ci
+    - name: Run tests
+      run: npm test
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Verify dist is up-to-date
-        run: |
-          if [ -n "$(git status --porcelain dist/)" ]; then
-            echo "Error: dist/ directory has uncommitted changes after build"
-            echo "Please run 'npm run build' and commit the changes"
-            git diff --stat dist/
-            exit 1
-          fi
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - run: npm ci
+    - name: Build
+      run: npm run build
+    - name: Verify dist is up-to-date
+      run: |
+        if [ -n "$(git status --porcelain dist/)" ]; then
+          echo "Error: dist/ directory has uncommitted changes after build"
+          echo "Please run 'npm run build' and commit the changes"
+          git diff --stat dist/
+          exit 1
+        fi
 
   sandbox-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          repository: sgnl-actions/action-sandbox
-          ref: migrate-to-docker # TODO: remove after merging to main
-          path: .action-sandbox
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: "22"
-          cache: "npm"
-      - name: Build sandbox container
-        run: docker build -t ghcr.io/sgnl-actions/sandbox-runner:latest .action-sandbox
-      - run: npm ci
-      - name: Sandbox test
-        run: npx sgnl-sandbox-test
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
+      with:
+        deno-version: v2.x
+    - run: npm ci
+    - name: Sandbox test
+      run: npx sgnl-sandbox-test
