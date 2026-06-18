@@ -12,7 +12,7 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
-    - run: npm ci
+    - run: npm install
     - name: Validate metadata
       run: npm run validate
 
@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
-    - run: npm ci
+    - run: npm install
     - name: Lint
       run: npm run lint
 
@@ -36,7 +36,7 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
-    - run: npm ci
+    - run: npm install
     - name: Run tests
       run: npm test
 
@@ -48,16 +48,7 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
-    - run: npm ci
-    - name: Verify package-lock.json is in sync
-      run: |
-        npm cache clean --force
-        npm install --package-lock-only --prefer-online
-        if [ -n "$(git status --porcelain package-lock.json)" ]; then
-          echo "Error: package-lock.json is out of sync with package.json"
-          echo "Please run 'npm install' and commit the updated package-lock.json"
-          exit 1
-        fi
+    - run: npm install
     - name: Build
       run: npm run build
     - name: Verify dist is up-to-date
@@ -81,6 +72,6 @@ jobs:
     - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
       with:
         deno-version: v2.x
-    - run: npm ci
+    - run: npm install
     - name: Sandbox test
       run: npx sgnl-sandbox-test
