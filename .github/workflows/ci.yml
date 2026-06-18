@@ -7,94 +7,95 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-      with:
-        node-version: '22'
-        cache: 'npm'
-    - run: npm install
-    - name: Validate metadata
-      run: npm run validate
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - name: Validate metadata
+        run: npm run validate
 
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-      with:
-        node-version: '22'
-        cache: 'npm'
-    - run: npm install
-    - name: Lint
-      run: npm run lint
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
 
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-      with:
-        node-version: '22'
-        cache: 'npm'
-    - run: npm install
-    - name: Run tests
-      run: npm test
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - name: Run tests
+        run: npm test
 
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-      with:
-        node-version: '22'
-        cache: 'npm'
-    - run: npm install
-    - name: Verify package-lock.json is in sync
-      run: |
-        cp package-lock.json /tmp/committed-lock.json
-        npm install --package-lock-only --prefer-online
-        node -e "
-          const fs = require('fs');
-          for (const f of ['/tmp/committed-lock.json', 'package-lock.json']) {
-            const lock = JSON.parse(fs.readFileSync(f, 'utf8'));
-            for (const pkg of Object.values(lock.packages || {})) {
-              delete pkg.resolved;
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - name: Verify package-lock.json is in sync
+        run: |
+          cp package-lock.json /tmp/committed-lock.json
+          npm install --package-lock-only --prefer-online
+          node -e "
+            const fs = require('fs');
+            for (const f of ['/tmp/committed-lock.json', 'package-lock.json']) {
+              const lock = JSON.parse(fs.readFileSync(f, 'utf8'));
+              for (const pkg of Object.values(lock.packages || {})) {
+                delete pkg.resolved;
+              }
+              fs.writeFileSync(f, JSON.stringify(lock, null, 2) + '\n');
             }
-            fs.writeFileSync(f, JSON.stringify(lock, null, 2) + '\n');
-          }
-        "
-        if ! diff -q /tmp/committed-lock.json package-lock.json > /dev/null 2>&1; then
-          echo "Error: package-lock.json is out of sync with package.json"
-          echo "Please run 'npm install' and commit the updated package-lock.json"
-          diff /tmp/committed-lock.json package-lock.json | head -50
-          exit 1
-        fi
-    - name: Build
-      run: npm run build
-    - name: Verify dist is up-to-date
-      run: |
-        if [ -n "$(git status --porcelain dist/)" ]; then
-          echo "Error: dist/ directory has uncommitted changes after build"
-          echo "Please run 'npm run build' and commit the changes"
-          git diff --stat dist/
-          exit 1
-        fi
+          "
+          if ! diff -q /tmp/committed-lock.json package-lock.json > /dev/null 2>&1; then
+            echo "Error: package-lock.json is out of sync with package.json"
+            echo "Please run 'npm install' and commit the updated package-lock.json"
+            diff /tmp/committed-lock.json package-lock.json | head -50
+            exit 1
+          fi
+      - name: Build
+        run: npm run build
+      - name: Verify dist is up-to-date
+        run: |
+          if [ -n "$(git status --porcelain dist/)" ]; then
+            echo "Error: dist/ directory has uncommitted changes after build"
+            echo "Please run 'npm run build' and commit the changes"
+            git diff --stat dist/
+            exit 1
+          fi
 
   sandbox-test:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      with:
-        repository: sgnl-actions/action-sandbox
-        path: .action-sandbox
-    - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-      with:
-        node-version: '22'
-        cache: 'npm'
-    - name: Build sandbox container
-      run: docker build -t ghcr.io/sgnl-actions/sandbox-runner:latest .action-sandbox
-    - run: npm install
-    - name: Sandbox test
-      run: npx sgnl-sandbox-test
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          repository: sgnl-actions/action-sandbox
+          ref: migrate-to-docker # TODO: remove after merging to main
+          path: .action-sandbox
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+      - name: Build sandbox container
+        run: docker build -t ghcr.io/sgnl-actions/sandbox-runner:latest .action-sandbox
+      - run: npm ci
+      - name: Sandbox test
+        run: npx sgnl-sandbox-test
