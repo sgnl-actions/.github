@@ -67,7 +67,6 @@ jobs:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         repository: sgnl-actions/action-sandbox
-        ref: migrate-to-docker # TODO: remove after merging to main
         path: .action-sandbox
     - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
       with:
