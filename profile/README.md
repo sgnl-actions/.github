@@ -181,6 +181,12 @@ Actions use a simplified error model:
    npm run build      # Build CommonJS distribution
    ```
 
+### Versioning
+
+- **Automatic patch updates** - The SGNL system automatically updates actions to the latest patch version when a client references an action using `tag/v{MAJOR}` or `tag/v{MINOR}`. This means patch-level changes are rolled out without requiring clients to update their references.
+- **Bump the minor version for breaking changes** - When updating `metadata.yaml`, you must increment the minor version if the change is breaking (e.g., adding a required input variable, removing an input, changing behavior in a non-backwards-compatible way).
+- **For SGNL-owned action developers** - It is recommended to increment the patch version when updating an action. If you bump the minor version, a new action entry must be created for the deployment. Contact engineering for assistance.
+
 ### Development Standards
 
 - **Node.js 22** - Use modern ES6+ features
