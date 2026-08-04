@@ -86,6 +86,20 @@ Actions are executed through SGNL's CAEP Hub feature.
 |------|--------|-------------|
 | HTTP | [generic-webhook](https://github.com/sgnl-actions/generic-webhook) | Execute custom HTTP requests |
 
+### CAEP Actions
+_https://openid.net/specs/openid-caep-1_0-final.html_
+
+| Type | Repository | Description |
+|------|------------|-------------|
+| CAEP Assurance Level Change | [caep-assurance-level-change](https://github.com/sgnl-actions/caep-assurance-level-change) | Handle assurance level change events |
+| CAEP Device Compliance Change | [caep-device-compliance-change](https://github.com/sgnl-actions/caep-device-compliance-change) | Handle device compliance change events |
+| CAEP Credential Change | [caep-credential-change](https://github.com/sgnl-actions/caep-credential-change) | Handle credential change events |
+| CAEP Session Revoked | [caep-session-revoked](https://github.com/sgnl-actions/caep-session-revoked) | Handle session revoked events |
+| CAEP Token Claims Change | [caep-token-claims-change](https://github.com/sgnl-actions/caep-token-claims-change) | Handle token claims change events |
+| CAEP Risk Level Change | [caep-risk-level-change](https://github.com/sgnl-actions/caep-risk-level-change) | Handle risk level change events |
+| CAEP Session Presented | [caep-session-presented](https://github.com/sgnl-actions/caep-session-presented) | Handle session presented events |
+| CAEP Session Established | [caep-session-established](https://github.com/sgnl-actions/caep-session-established) | Handle session established events |
+
 ### Templates & Examples
 
 | Type | Repository | Description |
